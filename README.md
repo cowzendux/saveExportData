@@ -19,7 +19,8 @@ This function
 keep = """StudID RecordedDate  
   ExcDis NonExcDis  
   DisLog_1 to DisLog_15""")**
-* This will take the currently active dataset and save it as D:/Banking Time/Data/3 Cleaned/Discipline data by StudID.sav. It will then create 3 additional files.
+* This will take the currently active dataset and use it to create 4 files.
+  * D:/Banking Time/Data/3 Cleaned/Discipline data by StudID.sav : SPSS data set
   * D:/Banking Time/Data/3 Cleaned/Discipline data by StudID.xlsx : Excel conversion of data set
   * D:/Banking Time/Data/3 Cleaned/Discipline data by StudID.spv : Data dictionary saved as SPSS output file
   * D:/Banking Time/Data/3 Cleaned/Discipline data by StudID.docx : Data dictionary saved as Word doc
