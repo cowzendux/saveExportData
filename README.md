@@ -1,6 +1,6 @@
 # saveExportData
 
-SPSS Python macro to save a data set, export it to Excel, create a data dictionary, and export the dictionary to Word
+SPSS Python macro to save a data set, export it to Excel, create a data dictionary, and export the dictionary to Word. This is useful for retaining documentation about your data, and also facilitates transferring the file to ChatGPT for data visualization and analysis.
 
 This function 
 * Saves the current dataset to the supplied path as a .sav file. It also can optionally drop a list of variables from the save file, or keep a list of variables in the save file.
