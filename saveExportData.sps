@@ -38,13 +38,9 @@ def saveExportData(filepath, keep=None, drop=None):
             
     submitstring = f"SAVE OUTFILE='{filepath}.sav'"
     if (keep != None):
-        submitstring += "\n  /keep"
-        for var in keep:
-            submitstring += "\n"+var
+        submitstring += f"\n  /keep {keep}"
     if (keep == None and drop != None):
-        submitstring += "\n /drop"
-        for var in drop:
-            submitstring += "\n"+var
+        submitstring += f"\n /drop {drop}"
     submitstring += f"\n  /COMPRESSED."
     spss.Submit(submitstring)
 
@@ -83,4 +79,3 @@ end program python3.
 * 2024-07-20 Created
 * 2024-09-22 Separated saving of data set from creating dictionary
 * 2024-10-13 Removed .sav from end of filepath
-* 2025-01-04 Corrected error in keep/drop
