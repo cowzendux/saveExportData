@@ -32,14 +32,23 @@ begin program python3.
 import spss
 
 def saveExportData(filepath, keep=None, drop=None):
+    # Remove .sav at end of file path if it exists
+    if (filepath[-4:].upper() == ".SAV"):
+        filepath = filepath[:-4]
+            
     submitstring = f"SAVE OUTFILE='{filepath}.sav'"
     if (keep != None):
-        submitstring += f"\n  /keep {keep}"
+        submitstring += "\n  /keep"
+        for var in keep:
+            submitstring += "\n"+var
     if (keep == None and drop != None):
-        submitstring += f"\n /drop {drop}"
-    submitstring += f"""\n  /COMPRESSED.
+        submitstring += "\n /drop"
+        for var in drop:
+            submitstring += "\n"+var
+    submitstring += f"\n  /COMPRESSED."
+    spss.Submit(submitstring)
 
-SAVE TRANSLATE OUTFILE='{filepath}.xlsx'
+    submitstring = f"""SAVE TRANSLATE OUTFILE='{filepath}.xlsx'
   /TYPE=XLS
   /VERSION=12
   /MAP
@@ -72,3 +81,6 @@ end program python3.
 * Version History
 *******
 * 2024-07-20 Created
+* 2024-09-22 Separated saving of data set from creating dictionary
+* 2024-10-13 Removed .sav from end of filepath
+* 2025-01-04 Corrected error in keep/drop
